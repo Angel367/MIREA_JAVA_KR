@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+
+    <div th:if="${param.success}">
+        <div class="alert alert-info">Вы успешно зарегистрировались!</div>
+    </div>
+    <div th:if="${param.email_error}">
+        <div class="alert alert-info">Некорректный адрес электронной почты!</div>
+    </div>
+    <header>Регистрация</header>
+    <div class="heading-line"></div>
+    <form th:action="@{/registration}" method="post" th:object="${user}">
+
+        <div class="field firstName">
+            <div class="input-area">
+                <input type="text" placeholder="Фамилия" th:field="*{middleName}" required autofocus="autofocus">
+                <i class="icon fas fa-user"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+
+        <div class="field lastName">
+            <div class="input-area">
+                <input type="text" placeholder="Имя" th:field="*{firstName}" required autofocus="autofocus">
+                <i class="icon fas fa-user"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+        <div class="field lastName">
+            <div class="input-area">
+                <input type="text" placeholder="Отчество" th:field="*{lastName}" required autofocus="autofocus">
+                <i class="icon fas fa-user"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+
+        <div class="field email">
+            <div class="input-area">
+                <input type="email" placeholder="Электронная почта" th:field="*{username}" required autofocus="autofocus">
+                <i class="icon fas fa-envelope"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+
+        <div class="field phoneNumber">
+            <div class="input-area">
+                <input type="text" placeholder="Номер телефона" th:field="*{number}" required autofocus="autofocus">
+                <i class="icon fas fa-phone"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+
+        <div class="field password">
+            <div class="input-area">
+                <input type="password" placeholder="Пароль" th:field="*{password}" required autofocus="autofocus">
+                <i class="icon fas fa-lock"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="form-control btn btn-success" style="background: #9e8a78; border-color: #9e8a78;">Зарегистрироваться</button>
+        </div>
+        <div>
+            <span  class="spann">Уже зарегистрированы? <a style="color: #9e8a78" href="/" th:href="@{/login}">Войдите в аккаунт</a></span>
+        </div>
+    </form>
+</body>
+</html>
