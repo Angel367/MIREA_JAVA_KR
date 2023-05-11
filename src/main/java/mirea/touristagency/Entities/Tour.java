@@ -28,8 +28,8 @@ public class Tour {
 
     int price;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    SimpleDateFormat departureDate;
+
+    Date departureDate;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

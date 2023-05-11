@@ -1,8 +1,10 @@
 package mirea.touristagency.Controllers;
 
 import mirea.touristagency.Entities.Tour;
+import mirea.touristagency.Entities.TourParameters.Country;
 import mirea.touristagency.Entities.User;
 import mirea.touristagency.Services.UserService;
+import mirea.touristagency.repository.CountryRepository;
 import mirea.touristagency.repository.TourRepository;
 import mirea.touristagency.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +31,20 @@ public class AllController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    CountryRepository countryRepository;
+
     private Authentication authentication;
 
     @GetMapping()
     public String userRecords(Model model) {
 
-        List<Tour> list = tourRepository.findAll();
+        List<Tour> tourList = tourRepository.findAll();
+        List<Country> countryList = countryRepository.findAll();
 
-        model.addAttribute("records", list);
+        model.addAttribute("tours", tourList);
+        model.addAttribute("countries", countryList);
+
 
         return "all";
     }

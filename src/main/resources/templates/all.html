@@ -18,7 +18,9 @@
             </div>
         </div>
     </div>
-
+    <div>
+        <input type="number" id="price_from">
+    </div>
     <div class="container">
         <table class="table color2">
             <thead>
@@ -37,11 +39,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr data-th-each="tour : ${records}">
+            <tr data-th-each="tour : ${tours}">
                 <td data-th-text="${tour.id}"></td>
                 <td data-th-text="${tour.name}"></td>
                 <td data-th-text="${tour.price}"></td>
-                <td data-th-text="${tour.departureDate.toLocalizedPattern()}"></td>
+                <td data-th-text="${tour.departureDate.toString()}"></td>
                 <td data-th-text="${tour.departureCity.name}"></td>
                 <td data-th-text="${tour.tourOperator.name}"></td>
                 <td data-th-text="${tour.peopleAmount}"></td>

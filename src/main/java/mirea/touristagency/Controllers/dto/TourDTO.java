@@ -2,6 +2,7 @@ package mirea.touristagency.Controllers.dto;
 
 import lombok.Data;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import mirea.touristagency.Entities.TourParameters.*;
@@ -15,7 +16,9 @@ public class TourDTO {
 
     int price;
 
-    SimpleDateFormat departureDate;
+    String departureDate;
+    SimpleDateFormat stf = new SimpleDateFormat("yyyy-MM-dd");
+
 
     City departureCity;
 
@@ -35,9 +38,17 @@ public class TourDTO {
 
     }
 
-    public TourDTO(long id, String name, int price, SimpleDateFormat departureDate, City departureCity,
+    public Date getDepartureDate() {
+        try {
+        return stf.parse(departureDate);
+        } catch (Exception e) {
+            return new Date();
+        }
+    }
+
+    public TourDTO(long id, String name, int price, String departureDate, City departureCity,
                    TourOperator tourOperator, int peopleAmount, int daysAmount, Country country,
-                   ArrivalCity arrivalCity, Hotel hotel) {
+                   ArrivalCity arrivalCity, Hot el hotel) {
         this.id = id;
         this.name = name;
         this.price = price;

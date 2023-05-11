@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mirea.touristagency.Entities.User;
 import mirea.touristagency.repository.UserRepository;
 
+import java.text.ParseException;
+
 @Controller
 @RequestMapping("/addtour")
 public class TourController {
@@ -28,7 +30,7 @@ public class TourController {
     UserRepository userRepository;
 
     @PostMapping
-    public String addTour(@ModelAttribute("tour") TourDTO tourDTO) {
+    public String addTour(@ModelAttribute("tour") TourDTO tourDTO) throws ParseException {
 
         authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
