@@ -17,7 +17,6 @@ import java.util.List;
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Data
 public class User implements UserDetails {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,10 +35,6 @@ public class User implements UserDetails {
     private String number;
 
     private String password;
-
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch=FetchType.LAZY)
-    private List<Book> books;
 
     @Enumerated(EnumType.STRING)
     private Role role;

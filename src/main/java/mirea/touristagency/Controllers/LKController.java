@@ -2,8 +2,8 @@ package mirea.touristagency.Controllers;
 
 import mirea.touristagency.Entities.Tour;
 import mirea.touristagency.Entities.User;
-import mirea.touristagency.repository.TourRepository;
-import mirea.touristagency.repository.UserRepository;
+import mirea.touristagency.Repositories.TourRepository;
+import mirea.touristagency.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -58,7 +58,4 @@ public class Tour {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     User user;
-
-
-
 }

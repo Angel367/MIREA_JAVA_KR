@@ -1,11 +1,7 @@
 package mirea.touristagency.Services.Implementations;
 
 import lombok.extern.slf4j.Slf4j;
-import mirea.touristagency.Entities.Tour;
-import mirea.touristagency.repository.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,13 +10,10 @@ import mirea.touristagency.Controllers.dto.UserRegistrationDTO;
 import mirea.touristagency.Entities.Role;
 import mirea.touristagency.Entities.User;
 import mirea.touristagency.Services.UserService;
-import mirea.touristagency.repository.UserRepository;
+import mirea.touristagency.Repositories.UserRepository;
 
 import javax.annotation.PostConstruct;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -43,6 +36,14 @@ public class UserServiceImpl implements UserService {
                 Role.USER);
 
         return userRepository.save(user);
+    }
+    @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+    @Override
+    public List<User> getUsers(){
+        return userRepository.findAll();
     }
 
     @Override
